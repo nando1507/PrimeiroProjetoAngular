@@ -6,6 +6,7 @@ import { filterByDescription } from "./filter-by-description.pipe";
 import { LoadButtonComponent } from "./load-button/load-button.component";
 import { PhotoListComponent } from "./photo-list.component";
 import { PhotosComponent } from "./photos/photos.component";
+import { SearchComponent } from "./search/search.component";
 import { CardModule } from "./shared/components/card/card.module";
 import { DarkenOnHoverModule } from "./shared/components/directives/darken-on-hover/darken-on-hover.module";
 
@@ -15,7 +16,7 @@ import { DarkenOnHoverModule } from "./shared/components/directives/darken-on-ho
         PhotosComponent,
         LoadButtonComponent,
         filterByDescription,
-        //SearchComponent
+        SearchComponent
     ],
     imports: [ 
         CommonModule,

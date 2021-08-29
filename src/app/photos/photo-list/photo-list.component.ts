@@ -10,11 +10,11 @@ import { PhotoService } from '../photo/photo.service';
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.css']
 })
-export class PhotoListComponent implements OnInit , OnDestroy {
+export class PhotoListComponent implements OnInit  {
 
   photos: Photo[] = []; 
   filter: string = '';
-  debounce: Subject<string> = new Subject<string>();
+
   hasMore: boolean = true;
   currentPage: number = 1;
   userName: string = '';
@@ -23,18 +23,12 @@ export class PhotoListComponent implements OnInit , OnDestroy {
     private photoService: PhotoService,
     private activatedRoute: ActivatedRoute
   ) { }
-  ngOnDestroy(): void {
-    this.debounce.unsubscribe();
-  }
 
   ngOnInit(): void {
     this.photos = this.activatedRoute.snapshot.data['photos'];  
     this.userName = this.activatedRoute.snapshot.data['photos'];
     // this.debounce.next('f');
-    this.debounce
-      .pipe(debounceTime(300))
-      .subscribe(filter => this.filter = filter);
-  }
+   }
 
   load(){
     this.photoService
